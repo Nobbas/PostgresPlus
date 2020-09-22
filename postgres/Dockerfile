@@ -9,15 +9,15 @@ COPY backup-upload.sh /backup-upload.sh
 COPY backup-download.sh /backup-download.sh
 COPY backup-download-latest.sh /backup-download-latest.sh
 COPY start-cron.sh /start-cron.sh
-COPY hello-cron /etc/cron.d/hello-cron
+COPY cron-task /etc/cron.d/hcron-task
 
 RUN chmod 777 backup-upload.sh
 RUN chmod 777 backup-download.sh
 RUN chmod 777 backup-download-latest.sh
 RUN chmod 777 start-cron.sh
-RUN chmod 777 /etc/cron.d/hello-cron
+RUN chmod 777 /etc/cron.d/cron-task
 
-RUN crontab /etc/cron.d/hello-cron
+RUN crontab /etc/cron.d/cron-task
 RUN touch /var/log/cron.log
 
 
