@@ -9,7 +9,7 @@ COPY backup-upload.sh /backup-upload.sh
 COPY backup-download.sh /backup-download.sh
 COPY backup-download-latest.sh /backup-download-latest.sh
 COPY start-cron.sh /start-cron.sh
-COPY cron-task /etc/cron.d/hcron-task
+COPY cron-task /etc/cron.d/cron-task
 
 RUN chmod 777 backup-upload.sh
 RUN chmod 777 backup-download.sh
