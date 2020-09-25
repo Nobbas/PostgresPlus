@@ -7,8 +7,6 @@ RUN pip install awscli
 RUN apt-get -y install curl nano
 RUN apt-get update && apt-get -y install cron
 
-COPY ./setup-master.sh /docker-entrypoint-initdb.d/setup-master.sh
-
 COPY backup-upload.sh /backup-upload.sh
 COPY backup-download.sh /backup-download.sh
 COPY backup-download-latest.sh /backup-download-latest.sh
@@ -43,9 +41,5 @@ RUN apt-get update && \
   apt-get remove -y unzip wget make gcc postgresql-server-dev-11 && \
   cd .. && \
   rm -rf ./*
-
-
-
-
-
+  
 ENTRYPOINT /start-cron.sh && /docker-entrypoint.sh postgres
